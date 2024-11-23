@@ -1,9 +1,10 @@
 # Django Notes
+Backed code is all within the colorAnalysis folder
 
-## Project: colorAnalysis folder
+## Project: ./colorAnylisi/colorAnalysis/
 Can be composed of multiple apps that are included through settings.py, for example, backend logic is an app.
 
-## App: backendApp folder
+## App: ./colorAnalysis/backendApp/
 ### Models
 Represents structure of data mapped to a database table
 ### Views
