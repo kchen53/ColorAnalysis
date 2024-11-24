@@ -57,17 +57,17 @@ def RGB_To_HSV(r, g, b):
 
     value = norm_Max
 
-    hue = hue * 60
+    hue = round(hue * 60, 3)
     saturation = saturation * 100
     value = value * 100 
     
-    return round(hue, 3), saturation, value
+    return hue, saturation, value
 
-#Testing
-r, g, b = Hex_To_RGB("#FF5733")
-hue, saturation, value = RGB_To_HSV(r, g, b)
-print(r, g, b)
-print(hue, saturation, value)
+# def HSV_To_RGB(hue, saturation, value):
+
+
+
+
 
 
 
