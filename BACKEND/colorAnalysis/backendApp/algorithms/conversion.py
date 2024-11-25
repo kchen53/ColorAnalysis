@@ -16,6 +16,22 @@ def Hex_Alpha(character):
     else:
         return int(character)
 
+def Hex_Num(num):
+
+    hex_num = {
+        10 : "A", 10 : "a",
+        11 : "B", 11 : "b",
+        12 : "C", 12 : "c",
+        13 : "D", 13 : "d",
+        14 : "E", 14 : "e",
+        15 : "F", 15 : "f"
+     }
+    
+    if num in hex_num:
+        return hex_num[num]
+    else:
+        return str(num)
+
 def Hex_To_RGB(hex_String):
     if hex_String[0] == "#":
         hex_String = hex_String[1:]
@@ -30,6 +46,15 @@ def Hex_To_RGB(hex_String):
     b = Hex_Alpha(b[0]) * 16 + Hex_Alpha(b[1])
 
     return r, g, b
+
+
+def RGB_To_Hex(r, g, b):
+    r = Hex_Num(math.floor(r / 16)) + Hex_Num(r % 16)
+    g = Hex_Num(math.floor(g / 16)) + Hex_Num(g % 16)
+    b = Hex_Num(math.floor(b / 16)) + Hex_Num(b % 16)
+
+    hex = r + g + b
+    return hex
 
 def RGB_To_HSV(r, g, b):
 
@@ -63,7 +88,36 @@ def RGB_To_HSV(r, g, b):
     
     return hue, saturation, value
 
-# def HSV_To_RGB(hue, saturation, value):
+def HSV_To_RBG(hue, saturation, value):
+
+    saturation = saturation / 100
+    value = value / 100
+
+    chroma = value * saturation
+
+    x = chroma * (1 - abs(((hue / 60) % 2) - 1))
+
+    if 0 <= hue < 60:
+        norm_R, norm_G, norm_B = chroma, x, 0
+    elif 60 <= hue < 120:
+        norm_R, norm_G, norm_B = x, chroma, 0
+    elif 120 <= hue < 180:
+        norm_R, norm_G, norm_B = 0, chroma, x
+    elif 180 <= hue < 240:
+        norm_R, norm_G, norm_B = 0, x, chroma
+    elif 240 <= hue < 300:
+        norm_R, norm_G, norm_B = x, 0, chroma
+    elif 300 <= hue < 360:
+        norm_R, norm_G, norm_B = chroma, 0, x
+    
+    m = value - chroma
+
+    r = round((norm_R + m) * 255)
+    g = round((norm_G + m) * 255)
+    b = round((norm_B + m) * 255)
+
+    return r, g, b
+    
 
 
 
