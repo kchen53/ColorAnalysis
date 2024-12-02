@@ -1,72 +1,45 @@
 from complementary import *
 
 # ----------------------------Testing for complementary function-------------------------------
-hex_string = "#af30cf"
-print("color: " + hex_string)
+
+print("---------------Color & Comp Color info----------------")
+color = "#af30cf"
+print("color: " + color)
 print("r, g, b: ")
-print(Hex_To_RGB(hex_string))
+print(Hex_To_RGB(color))
 print("h, s, v: ")
-print(Hex_To_HSV(hex_string))
+print(Hex_To_HSV(color))
 
-print("\n")
+print("--------------------------------------")
 
-h, s, v = Hex_To_HSV(hex_string)
-print("complementary: ")
-print(complementary_color(h, s, v))
+h, s, v = Hex_To_HSV(color)
+comp_color = complementary_color(h, s, v)
+print("complementary: " + comp_color)
+print("r, g, b: ")
+print(Hex_To_RGB(comp_color))
 print("h, s, v: ")
 print(Hex_To_HSV(complementary_color(h, s, v)))
 
-def test1():
-    hue, saturation, value = Hex_To_HSV("#FF5733")
+print("\n")
+print("---------------Test cases------------------")
 
-    if complementary_color(hue, saturation, value) == "33dbff":
-       print('true')
+def comp_test(num, color, comp_color):
+
+    hue, saturation, value = Hex_To_HSV(color)
+
+    if complementary_color(hue, saturation, value) == comp_color:
+        print(str(num) + '. true')
     else:
-        print('false')
+        print(str(num) + '. false')
 
-def test2():
-    hue, saturation, value = Hex_To_HSV("#ED5EEE")
-
-    if complementary_color(hue, saturation, value) == "5fee5e":
-        print('true')
-    else:
-        print('false')
-
-def test3():
-    hue, saturation, value = Hex_To_HSV("#af30cf")
-
-    if complementary_color(hue, saturation, value) == "50cf30":
-        print('true')
-    else:
-        print('false')
-
-def test4():
-    hue, saturation, value = Hex_To_HSV("#a5bc43")
-
-    if complementary_color(hue, saturation, value) == "5a43bc":
-        print('true')
-    else:
-        print('false')
-
-def test5():
-    hue, saturation, value = Hex_To_HSV("#fa0552")
-
-    if complementary_color(hue, saturation, value) == "05faad":
-        print('true')
-    else:
-        print('false')
-
-def test6():
-    hue, saturation, value = Hex_To_HSV("#2e58d1")
-
-    if complementary_color(hue, saturation, value) == "d1a72e":
-        print('true')
-    else:
-        print('false')
-
-test1()
-test2()
-test3()
-test4()
-test5()
-test6()
+def tests():
+    
+    comp_test(1, "#FF5733", "33dbff")
+    comp_test(2, "#ED5EEE", "5fee5e")
+    comp_test(3, "#af30cf", "50cf30")
+    comp_test(4, "#a5bc43", "5a43bc")
+    comp_test(5, "#fa0552", "05faad")
+    comp_test(6, "#2e58d1", "d1a72e")
+    
+tests()
+print("-------------Test cases end-----------------")
