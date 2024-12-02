@@ -110,10 +110,7 @@ def RGB_To_HSV(r, g, b):
 
     #convert hue to degree, and saturation and value to percentages
     hue = (hue / 6) % 1
-
     hue = hue * 360
-    
-    
     saturation = saturation * 100
     value = value * 100 
     
@@ -169,8 +166,6 @@ def HSV_To_Hex(h, s, v):
     hex_string = RGB_To_Hex(r, g, b)
 
     return hex_string
-    
-
 
 
 
