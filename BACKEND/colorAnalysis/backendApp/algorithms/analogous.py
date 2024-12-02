@@ -1,6 +1,6 @@
 from conversion import *
 
-def analogous_color(hue, saturation, value):
+def analogous_colors(hue, saturation, value):
 
     #find analogous color
     hue_left = hue - 30
