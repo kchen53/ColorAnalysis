@@ -6,6 +6,7 @@ def analogous_color(hue, saturation, value):
     hue_left = hue - 30
     hue_right = hue + 30
 
+    #to keep hue within color wheel range
     if hue_left > 360:
         hue_left = hue_left - 360
     if hue_right > 360:
