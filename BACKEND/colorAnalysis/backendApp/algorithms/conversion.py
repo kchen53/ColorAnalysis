@@ -1,6 +1,6 @@
 import math
 
-#helper for HEX_ToRBG
+#helper for HEX_To_RBG
 def Hex_Alpha(character):
 
     #hex A-F converts to 10-15
@@ -93,10 +93,10 @@ def RGB_To_HSV(r, g, b):
         hue = 0
     
     if norm_Max == normR:
-        hue = (normG - normB) / delta 
-    elif norm_Max == normB:
-        hue = ((normB - normR) / delta) + 2
+        hue = ((normG - normB) / delta) % 6
     elif norm_Max == normG:
+        hue = ((normB - normR) / delta) + 2
+    elif norm_Max == normB:
         hue = ((normR - normG) / delta) + 4
     
     #determine saturation
@@ -109,7 +109,11 @@ def RGB_To_HSV(r, g, b):
     value = norm_Max
 
     #convert hue to degree, and saturation and value to percentages
-    hue = round(hue * 60, 3)
+    hue = (hue / 6) % 1
+
+    hue = hue * 360
+    
+    
     saturation = saturation * 100
     value = value * 100 
     
@@ -149,6 +153,26 @@ def HSV_To_RBG(hue, saturation, value):
     b = round((B + m) * 255)
 
     return r, g, b
+
+def Hex_To_HSV(hex_string):
+
+    r, g, b = Hex_To_RGB(hex_string)
+    h, s, v = RGB_To_HSV(r, g, b)
+
+    return h, s, v
+
+def HSV_To_Hex(h, s, v):
+
+    r, g, b = HSV_To_RBG(h, s, v)
+    hex_string = RGB_To_Hex(r, g, b)
+
+    return hex_string
+    
+
+
+
+
+
     
 
 
