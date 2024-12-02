@@ -154,6 +154,7 @@ def HSV_To_RBG(hue, saturation, value):
 
     return r, g, b
 
+#converts hex to hsv values
 def Hex_To_HSV(hex_string):
 
     r, g, b = Hex_To_RGB(hex_string)
@@ -161,6 +162,7 @@ def Hex_To_HSV(hex_string):
 
     return h, s, v
 
+#converts HSV to hex string
 def HSV_To_Hex(h, s, v):
 
     r, g, b = HSV_To_RBG(h, s, v)

@@ -2,6 +2,7 @@ from complementary import *
 
 # ----------------------------Testing for complementary function-------------------------------
 
+#comparing rgb and hsv values for color and complementary color
 print("---------------Color & Comp Color info----------------")
 color = "#af30cf"
 print("color: " + color)
@@ -23,6 +24,8 @@ print(Hex_To_HSV(complementary_color(h, s, v)))
 print("\n")
 print("---------------Test cases------------------")
 
+
+#test function to check if complementary color is calculated properly
 def comp_test(num, color, comp_color):
 
     hue, saturation, value = Hex_To_HSV(color)
@@ -32,6 +35,7 @@ def comp_test(num, color, comp_color):
     else:
         print(str(num) + '. false')
 
+#function to hold mutiple test functions
 def tests():
     
     comp_test(1, "#FF5733", "33dbff")
@@ -41,5 +45,6 @@ def tests():
     comp_test(5, "#fa0552", "05faad")
     comp_test(6, "#2e58d1", "d1a72e")
     
+#running tests
 tests()
 print("-------------Test cases end-----------------")
