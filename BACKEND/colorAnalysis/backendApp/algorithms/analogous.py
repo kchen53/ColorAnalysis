@@ -23,7 +23,7 @@ def analogous_colors(hue, saturation, value):
 
 # ----------------------------Testing for analogous function-------------------------------
 h, s, v = Hex_To_HSV("#fa0552")
-m, r, l = analogous_color(h, s, v)
+m, r, l = analogous_colors(h, s, v)
 
 print(m)
 print(Hex_To_HSV(m))
